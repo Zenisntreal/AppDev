@@ -60,7 +60,7 @@ public class Match3 extends AppCompatActivity {
 
     private int generateRandomTile() {
         Random rand = new Random();
-        return rand.nextInt(3);
+        return rand.nextInt(4) + 1;
     }
 
     private void swapTiles(int row, int col) {

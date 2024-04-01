@@ -51,13 +51,16 @@ public class GridAdapter extends BaseAdapter {
         int tile = grid[row][col];
 
 
-        if (tile == 0) {
+        if (tile == 1) {
             imageView.setImageResource(R.drawable.bluecandy);
-        } else if(tile == 1) {
+        } else if(tile == 2) {
             imageView.setImageResource(R.drawable.orangecandy);
         }
-        else {
+        else if(tile == 3) {
             imageView.setImageResource(R.drawable.redcandy);
+        }
+        else if(tile == 4) {
+            imageView.setImageResource(R.drawable.purplecandy);
         }
 
         return imageView;
