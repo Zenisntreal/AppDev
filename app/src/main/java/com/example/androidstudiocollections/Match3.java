@@ -6,7 +6,6 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.Toast;
 
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Random;
@@ -61,11 +60,11 @@ public class Match3 extends AppCompatActivity {
 
     private int generateRandomTile() {
         Random rand = new Random();
-        return rand.nextInt(2); // Assuming 2 types of tiles (0 and 1)
+        return rand.nextInt(3);
     }
 
     private void swapTiles(int row, int col) {
-        // Assuming only horizontal and vertical adjacent swaps are allowed
+
         if (row + 1 < GRID_SIZE) {
             int temp = grid[row][col];
             grid[row][col] = grid[row + 1][col];
@@ -79,7 +78,7 @@ public class Match3 extends AppCompatActivity {
     }
 
     private void checkMatches() {
-        // Check horizontal matches
+
         for (int i = 0; i < GRID_SIZE; i++) {
             int count = 1;
             for (int j = 1; j < GRID_SIZE; j++) {
@@ -88,7 +87,7 @@ public class Match3 extends AppCompatActivity {
                     if (count == MATCH_THRESHOLD) {
                         replaceTiles(i, j - 2, i, j);
                         score += SCORE_PER_MATCH;
-                        checkMatches(); // Recursively check for new matches
+                        checkMatches();
                     }
                 } else {
                     count = 1;
@@ -96,7 +95,7 @@ public class Match3 extends AppCompatActivity {
             }
         }
 
-        // Check vertical matches
+
         for (int j = 0; j < GRID_SIZE; j++) {
             int count = 1;
             for (int i = 1; i < GRID_SIZE; i++) {
@@ -105,7 +104,7 @@ public class Match3 extends AppCompatActivity {
                     if (count == MATCH_THRESHOLD) {
                         replaceTiles(i - 2, j, i, j);
                         score += SCORE_PER_MATCH;
-                        checkMatches(); // Recursively check for new matches
+                        checkMatches();
                     }
                 } else {
                     count = 1;

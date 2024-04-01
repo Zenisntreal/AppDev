@@ -39,7 +39,7 @@ public class GridAdapter extends BaseAdapter {
         ImageView imageView;
         if (convertView == null) {
             imageView = new ImageView(context);
-            imageView.setLayoutParams(new ViewGroup.LayoutParams(100, 100)); // Adjust according to your need
+            imageView.setLayoutParams(new ViewGroup.LayoutParams(300, 300)); // Adjust according to your need
             imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             imageView.setPadding(8, 8, 8, 8);
         } else {
@@ -50,11 +50,14 @@ public class GridAdapter extends BaseAdapter {
         int col = position % grid[0].length;
         int tile = grid[row][col];
 
-        // Set different images for different tile values
+
         if (tile == 0) {
-            imageView.setImageResource(R.drawable.affliction); // Assuming you have a drawable resource named "tile_0"
-        } else {
-            imageView.setImageResource(R.drawable.affliction2); // Assuming you have a drawable resource named "tile_1"
+            imageView.setImageResource(R.drawable.bluecandy);
+        } else if(tile == 1) {
+            imageView.setImageResource(R.drawable.orangecandy);
+        }
+        else {
+            imageView.setImageResource(R.drawable.redcandy);
         }
 
         return imageView;
