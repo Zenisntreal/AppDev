@@ -54,6 +54,7 @@
             android:text="Gender" />
 
         <RadioGroup
+            android:id="@+id/rgGender"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:orientation="horizontal">
@@ -87,9 +88,10 @@
             android:text="Relationship Status" />
 
         <RadioGroup
+            android:id="@+id/rgStatus"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <RadioButton
                 android:id="@+id/btnSingle"
