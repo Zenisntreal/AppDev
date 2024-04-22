@@ -9,8 +9,8 @@
                 android:id="@+id/setChangeText"
                 android:title="Change Text " />
             <item
-                android:id="@+id/setBtnDimension"
-                android:title="Change Button Dimension" />
+                android:id="@+id/setBtnRotate"
+                android:title="Change Rotation" />
             <item
                 android:id="@+id/setChangeBtnColor"
                 android:title="Change Button Color" />

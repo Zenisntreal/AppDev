@@ -1,6 +1,6 @@
 package com.example.androidstudiocollections;
 
-import static android.graphics.Color.WHITE;
+import static android.graphics.Color.BLACK;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,7 +19,7 @@ public class MenuExercise extends AppCompatActivity {
 
     Button btnChanger;
     ConstraintLayout container;
-
+    float originalRotation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +27,7 @@ public class MenuExercise extends AppCompatActivity {
 
         btnChanger = findViewById(R.id.btnTransforming);
         container = findViewById(R.id.container);
-
+        originalRotation = btnChanger.getRotation();
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
@@ -48,6 +48,7 @@ public class MenuExercise extends AppCompatActivity {
 
 
 
+        btnChanger.setRotation(originalRotation);
         btnChanger.setX(450);
         btnChanger.setY(1000);
         container.setBackgroundColor(Color.WHITE);
@@ -59,13 +60,13 @@ public class MenuExercise extends AppCompatActivity {
         {
             btnChanger.setAlpha(0);
         } else if (item.getItemId() == R.id.setChangeBtnColor) {
-            btnChanger.setBackgroundColor(WHITE);
+            btnChanger.setBackgroundColor(BLACK);
         } else if (item.getItemId() == R.id.setBtnPos) {
             btnChanger.setX(10);
             btnChanger.setY(10);
         }
-        else if(item.getItemId() == R.id.setBtnDimension){
-            btnChanger.setBackgroundResource(R.drawable.affliction);
+        else if(item.getItemId() == R.id.setBtnRotate){
+            btnChanger.setRotation(45);
         }
         else if(item.getItemId() == R.id.setChangeText){
             btnChanger.setText("Jake Bajo");
