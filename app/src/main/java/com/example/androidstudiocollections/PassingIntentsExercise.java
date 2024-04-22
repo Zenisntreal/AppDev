@@ -2,6 +2,7 @@ package com.example.androidstudiocollections;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioButton;
@@ -75,7 +76,7 @@ public class PassingIntentsExercise extends AppCompatActivity {
     }
 
     private void submitForm() {
-        // Get values from EditTexts
+
         String firstName = firstNameEditText.getText().toString();
         String lastName = lastNameEditText.getText().toString();
         String birthDate = birthDateEditText.getText().toString();
@@ -88,36 +89,39 @@ public class PassingIntentsExercise extends AppCompatActivity {
 
 
         int selectedGenderId = genderRadioGroup.getCheckedRadioButtonId();
-        int selectedRelationshipStatusId = relationshipStatusRadioGroup.getCheckedRadioButtonId();
-
-
         String gender = "";
-        String relationshipStatus = "";
-
-        // Get selected radio button texts
         if (selectedGenderId != -1) {
             RadioButton selectedGenderRadioButton = findViewById(selectedGenderId);
             gender = selectedGenderRadioButton.getText().toString();
         }
 
+        int selectedRelationshipStatusId = relationshipStatusRadioGroup.getCheckedRadioButtonId();
+        String relationshipStatus = "";
         if (selectedRelationshipStatusId != -1) {
             RadioButton selectedRelationshipStatusRadioButton = findViewById(selectedRelationshipStatusId);
             relationshipStatus = selectedRelationshipStatusRadioButton.getText().toString();
         }
 
-        // Display a toast with the collected information
-        String toastMessage = "First Name: " + firstName + "\n" +
-                "Last Name: " + lastName + "\n" +
-                "Birth Date: " + birthDate + "\n" +
-                "Phone Number: " + phoneNumber + "\n" +
-                "Email Address: " + emailAddress + "\n" +
-                "School Name: " + schoolName + "\n" +
-                "Address: " + address + "\n" +
-                "Guardian's Name: " + guardiansName + "\n" +
-                "Graduated School: " + graduatedSchool + "\n" +
-                "Gender: " + gender + "\n" +
-                "Relationship Status: " + relationshipStatus;
 
-        Toast.makeText(this, toastMessage, Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, PassingIntentsExercise2.class);
+
+
+        intent.putExtra("firstName", firstName);
+        intent.putExtra("lastName", lastName);
+        intent.putExtra("birthDate", birthDate);
+        intent.putExtra("phoneNumber", phoneNumber);
+        intent.putExtra("emailAddress", emailAddress);
+        intent.putExtra("schoolName", schoolName);
+        intent.putExtra("address", address);
+        intent.putExtra("guardiansName", guardiansName);
+        intent.putExtra("graduatedSchool", graduatedSchool);
+        intent.putExtra("gender", gender);
+        intent.putExtra("relationshipStatus", relationshipStatus);
+
+
+        startActivity(intent);
     }
+
+
+
 }
