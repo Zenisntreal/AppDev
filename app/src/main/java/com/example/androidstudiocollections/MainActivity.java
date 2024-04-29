@@ -3,11 +3,13 @@ import android.content.Intent;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.Map;
 import java.util.function.IntToDoubleFunction;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
 
     Button btn7;
 
+    Button btn8;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         btn5 = (Button) findViewById(R.id.btnMatch);
         btn6 = (Button) findViewById(R.id.btnPassing);
         btn7 = (Button) findViewById(R.id.btnMenu);
+        btn8 = (Button) findViewById(R.id.btnMaps);
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -85,6 +90,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent6 = new Intent(MainActivity.this, MenuExercise.class);
                 startActivity(intent6);
+            }
+        });
+
+        btn8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent7 = new Intent(MainActivity.this, MapsExercise.class);
+                startActivity(intent7);
             }
         });
     }
